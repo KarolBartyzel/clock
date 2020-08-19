@@ -1,24 +1,56 @@
 import React from 'react';
-import logo from './logo.svg';
+import classnames from 'classnames';
+import { IoMdAlarm, IoMdClock, IoMdStopwatch, IoMdTimer } from 'react-icons/io';
+
+import Pages from './Pages';
+
 import './App.css';
 
+const pages = [
+  {
+    title: 'Clock',
+    Icon: IoMdClock,
+    Component: Pages.Clock,
+  },
+  {
+    title: 'Alarm Clock',
+    Icon: IoMdAlarm,
+    Component: Pages.AlarmClock,
+  },
+  {
+    title: 'Stopwatch',
+    Icon: IoMdStopwatch,
+    Component: Pages.Stopwatch,
+  },
+  {
+    title: 'Timer',
+    Icon: IoMdTimer,
+    Component: Pages.Timer,
+  },
+];
+
+
 function App() {
+  const [actualPage, setActualPage] = React.useState(pages[0]);
+  const { Component } = actualPage;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <nav className="Navigator">
+      {pages.map((page) => (
+        <div
+          className={classnames('Navigator-Item', { 'Active': actualPage.title === page.title })}
+          key={page.title}
+          onClick={() => setActualPage(page)}
         >
-          Learn React
-        </a>
-      </header>
+          <page.Icon size={32} />
+          <span className="Navigator-Item-Title">{page.title}</span>
+        </div>
+      ))}
+      </nav>
+      <div className="Page">
+        <Component />
+      </div>
     </div>
   );
 }
