@@ -1,12 +1,19 @@
-.Stopwatch {
-  height: 100%;
-  width: 100%;
+.Timer {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Stopwatch-Time {
+.Timer-Picker {
+  max-width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.Timer-Countdown {
   font-size: 2em;
   font-weight: bold;
   width: 250px;
@@ -37,15 +44,15 @@
   background-color: #fff;
 }
 
-@keyframes arc-pointer
+/* @keyframes arc-pointer
 {
   0%{
-    -webkit-transform:rotate(180deg);
+    -webkit-transform: rotate(180deg);
   }
   100%{
-    transform:rotate(540deg);
+    transform: rotate(540deg);
   }
-}
+} */
 
 .Arc-Pointer
 {
@@ -54,10 +61,10 @@
   height: 100%;
   border-radius: 100%;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
 }
 
-.Arc-Pointer:not(.Reseted) {
+/* .Arc-Pointer:not(.Reseted) {
   animation: arc-pointer 60s linear infinite both;
   clip: rect(125px, 150px, 300px, 125px);
 }
@@ -68,22 +75,25 @@
 
 .Arc-Pointer.Paused {
   animation-play-state: paused;
-}
+} */
 
-.Time {
-  position: absolute;
-  z-index: 4;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.Stopwatch-Buttons {
-  margin-top: 350px;
+.Number-Picker {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
 }
 
-.Stopwatch-Button {
+.Number-Picker-Input {
+  width: 100px;
+}
+
+.Timer-Buttons {
+  display: flex;
+  margin-top: 350px;
+}
+
+.Timer-Button {
   margin: 20px;
   border-radius: 50%;
   display: flex;
@@ -97,32 +107,6 @@
   cursor: pointer;
 }
 
-.Stopwatch-Button:hover, .Stopwatch-Button:active {
+.Timer-Button:hover, .Timer-Button:active {
   opacity: 1;
-}
-
-.Stopwatch-Stages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.Stopwatch-Stage {
-  display: flex;
-  padding: 5px 0px;
-  width: 100%;
-  justify-content: center;
-}
-
-.Stopwatch-Stage > div {
-  margin: 0 15px;
-  width: 15%;
-  text-align: center;
-}
-
-@media screen and (max-width: 600px) {
-  .Stopwatch-Stage > div {
-    width: 25%;
-  }
 }

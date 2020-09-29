@@ -4,7 +4,7 @@ import { IoMdPlay, IoMdPause, IoMdFlag, IoMdTrash } from 'react-icons/io';
 
 import './index.css';
 
-function Stopwatch(props) {
+function Stopwatch() {
   const [running, setRunning] = React.useState(false);
   const [time, setTime] = React.useState(0);
   const [lastTime, setLastTime] = React.useState(0);

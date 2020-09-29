@@ -3,7 +3,7 @@ import { IoMdGlobe } from 'react-icons/io';
 
 import './index.css';
 
-function Clock(props) {
+function Clock() {
   const [now, setNow] = React.useState(new Date(Date.now()));
 
   React.useEffect(() => {
